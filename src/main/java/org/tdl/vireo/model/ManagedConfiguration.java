@@ -14,7 +14,7 @@ import edu.tamu.weaver.validation.model.ValidatingBaseEntity;
  *
  */
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
+//@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
 public class ManagedConfiguration extends ValidatingBaseEntity implements Configuration {
 
     @Column(nullable = false, length = 255)

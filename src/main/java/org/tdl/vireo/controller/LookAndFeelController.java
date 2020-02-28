@@ -57,7 +57,18 @@ public class LookAndFeelController {
         logger.info("Changing logo " + setting);
 
         assetService.write(file.getBytes(), path);
-
+		//System.out.println("FSS SETTING "+setting);
+		//Configuration mc = (Configuration)configurationRepo.getByNameAndType(setting,lookAndFeelType);
+        //ManagedConfiguration newLogoConfig;
+        //if(mc instanceof ManagedConfiguration){
+		//    System.out.println("FSS MC NAME "+mc.getName()+" TYPE "+mc.getType()+" VAL "+mc.getValue()+" ID "+mc.getId());
+        //    newLogoConfig = configurationRepo.reset(mc);
+        //}else if(mc instanceof DefaultConfiguration){
+		//    System.out.println("FSS DEF NAME "+mc.getName()+" TYPE "+mc.getType()+" VAL "+mc.getValue());
+        //    newLogoConfig = configurationRepo.create(setting, path, "lookAndFeel");
+        //}else{
+		//    System.out.println("FSS SOME OTHER TYPE");
+        //}
         ManagedConfiguration newLogoConfig = configurationRepo.create(setting, path, "lookAndFeel");
 
         simpMessagingTemplate.convertAndSend("/channel/settings/configurable", new ApiResponse(SUCCESS, newLogoConfig));

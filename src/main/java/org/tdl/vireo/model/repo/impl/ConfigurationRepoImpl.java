@@ -39,8 +39,10 @@ public class ConfigurationRepoImpl extends AbstractWeaverRepoImpl<ManagedConfigu
     public Configuration getByNameAndType(String name, String type) {
         ManagedConfiguration configuration = configurationRepo.findByName(name);
         if (configuration != null) {
+System.out.println("FSS CONFIG NOT NULL");
             return configuration;
         }
+System.out.println("ELSE CONFIG NOT NULL");
         return defaultSettingsService.getSettingByNameAndType(name, type);
     }
 
